@@ -14,7 +14,7 @@ std::cout << "Enter the initial population size: ";
   if (population>=2&&rate>0&&days>1){
     do {
       ++loop;
-      std::cout << "Day " << loop << ": " << population << " organisms" << std::endl;
+      std::cout << "Day " << loop << ": " << static_cast<int>(population) << " organisms" << std::endl;
       population = population + (population * (rate / 100));
        
     } while (loop<days);
