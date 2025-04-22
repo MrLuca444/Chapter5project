@@ -4,33 +4,32 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
-
 int main() {
-    string filename;
-    cout << "Enter the filename: ";
-    cin >> filename;
+    std::ifstream file("LineUp.txt"); 
+    std::vector<std::string> names;
+    std::string name;
 
-    ifstream file(filename);
-    if (!file.is_open()) {
-        cerr << "Error opening file: " << filename << endl;
-        return 1;
-    }
+    if (file.is_open()) {
+        while (std::getline(file, name)) {
+            if (!name.empty()) {
+                names.push_back(name);
+            }
+        }
+        file.close();
 
-    vector<string> names;
-    string name;
-    while (getline(file, name)) {
-        names.push_back(name);
-    }
+        
+        std::sort(names.begin(), names.end());
 
-    file.close();
-
-    sort(names.begin(), names.end());
-
-    cout << "Names in alphabetical order:" << endl;
-    for (const auto& n : names) {
-        cout << n << endl;
+        
+        std::cout << "Names in alphabetical order:\n";
+        for (const auto& n : names) {
+            std::cout << n << std::endl;
+        }
+    } else {
+        std::cerr << "Failed to open file" << std::endl;
     }
 
     return 0;
 }
+
+
