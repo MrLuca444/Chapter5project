@@ -1,26 +1,28 @@
 #include <iostream>
 
 int main() {
- int days;
-  double population;
+    int counter = 0;
   int loop = 0;
-  double rate;
-std::cout << "Enter the initial population size: ";
-  std::cin >> population;
-  std::cout << "Enter the daily population increase (as a percentage): ";
-  std::cin >> rate;
-  std::cout << "Enter the number of days they will multiply: ";
-  std::cin >> days;
-  if (population>=2&&rate>0&&days>1){
+  int loop2 = 10;
+    std::cout<< "Pattern A:" << std::endl;
+  do {
+ loop++;
     do {
-      ++loop;
-      std::cout << "Day " << loop << ": " << static_cast<int>(population) << " organisms" << std::endl;
-      population = population + (population * (rate / 100));
-       
-    } while (loop<days);
-    
-  } else {
-    std::cout<<"Invalid input";
+      std::cout<< "*";
+      counter++;
+    }while (counter < loop);
+    std::cout<< std::endl;
+    counter = 0;
+  } while (loop < 10);
+std::cout << "Pattern B:" << std::endl;
+  do{
+    loop2--;
+    do{
+      std::cout<< "*";
+      counter++;
+    }while (counter < loop2);
+    std::cout<< std::endl;
+    counter = 0;
+  } while (loop2 > 1);
 }
-  
-}
+
