@@ -13,7 +13,7 @@ int main() {
     std::cout << "Too high!" << std::endl;
     attempts++;
     std::cin >> guess;
-  } else if (guess < winner) {
+  } else if (guess < winner&& guess > 1) {
     std::cout << "Too low!" << std::endl;
     attempts++;
     std::cin >> guess;
@@ -21,15 +21,15 @@ int main() {
     std::cout << "You won!" << std::endl;
     attempts++;
     condition++;
-  } else if (g) {
+  } else {
     std::cout << "I don't know what that means." << std::endl;
     std::cin >> guess;
-  } 
+
+  }
   }while (condition == 0); {
     std::cout << "You got it in " << attempts << " guesses!!" << std::endl;
 
   }
-  
-  
+
+
   }
-    
